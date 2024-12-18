@@ -17,7 +17,7 @@ jobs:
         run: |
           HUGO_VERSION=0.118.2  # Substitua pela versão desejada
           wget wget https://github.com/gohugoio/hugo/releases/download/v0.140.0/hugo_0.140.0_Linux-64bit.tar.gz
-          tar -xvzf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+          tar -xvzf hugo_0.140.0_Linux-64bit.tar.gz
           sudo mv hugo /usr/local/bin/
           hugo version
 
