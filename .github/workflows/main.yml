@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Fazer checkout do repositório
+      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Variáveis de configuração
+      # Setup configuration variables
       - name: Set up variables
         run: |
           HUGO_VERSION="0.140.0"
@@ -22,49 +22,49 @@ jobs:
           echo "HUGO_TAR=${HUGO_TAR}" >> $GITHUB_ENV
           echo "HUGO_URL=${HUGO_URL}" >> $GITHUB_ENV
 
-      # Baixar o Hugo
+      # Download Hugo
       - name: Download Hugo
         run: |
-          echo "Baixando Hugo versão $HUGO_VERSION..."
+          echo "Downloading Hugo version $HUGO_VERSION..."
           curl -L -o $HUGO_TAR $HUGO_URL
 
-      # Verificar se o download foi bem-sucedido
+      # Verify the download was successful
       - name: Verify download
         run: |
           if [ ! -f $HUGO_TAR ]; then
-            echo "Erro: O arquivo de download não foi encontrado!"
+            echo "Error: The downloaded file was not found!"
             exit 1
           fi
 
-      # Extrair e mover o Hugo para /usr/local/bin
+      # Extract and move Hugo to /usr/local/bin
       - name: Install Hugo
         run: |
-          echo "Extraindo e instalando Hugo..."
+          echo "Extracting and installing Hugo..."
           tar -xvzf $HUGO_TAR
           sudo mv hugo /usr/local/bin/
 
-      # Verificar a versão do Hugo
+      # Verify Hugo installation
       - name: Verify Hugo installation
         run: hugo version
 
-      # Configurar GitHub Pages
+      # Configure GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      # Construir o site com Hugo
+      # Build the site with Hugo
       - name: Build site
         run: |
-          echo "Construindo o site com Hugo..."
+          echo "Building the site with Hugo..."
           cd documentation && hugo --minify
 
-      # Fazer upload dos artefatos
+      # Upload artifacts
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: documentation/public
 
-      # Limpar arquivos desnecessários
+      # Clean up temporary files
       - name: Cleanup
         run: |
-          echo "Limpando arquivos temporários..."
+          echo "Cleaning up temporary files..."
           rm -f $HUGO_TAR
