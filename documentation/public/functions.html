@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.140.0">
+    <meta name="generator" content="Relearn 7.2.1+16d4de84becfa2d2e6bdb2394a2f4fa411bc0007">
+    <meta name="description" content="Capítulo 5 Funcionalidades Para realizar requests, selecione o serviço desejado. Inicialização Ativação Pagamento via cartão Pagamento via Pix Cancelamento Impressão Consultar chave transacional Atualizar carga de tabelas Detecção de cartão Relatórios Visualizar último recibo Token único por cartão">
+    <meta name="author" content="Zoop">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Funcionalidades - Plugin SmartPOS">
+    <meta name="twitter:description" content="Capítulo 5 Funcionalidades Para realizar requests, selecione o serviço desejado. Inicialização Ativação Pagamento via cartão Pagamento via Pix Cancelamento Impressão Consultar chave transacional Atualizar carga de tabelas Detecção de cartão Relatórios Visualizar último recibo Token único por cartão">
+    <meta property="og:url" content="//localhost:1313/functions.html">
+    <meta property="og:site_name" content="Plugin SmartPOS">
+    <meta property="og:title" content="Funcionalidades - Plugin SmartPOS">
+    <meta property="og:description" content="Capítulo 5 Funcionalidades Para realizar requests, selecione o serviço desejado. Inicialização Ativação Pagamento via cartão Pagamento via Pix Cancelamento Impressão Consultar chave transacional Atualizar carga de tabelas Detecção de cartão Relatórios Visualizar último recibo Token único por cartão">
+    <meta property="og:locale" content="pt">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Funcionalidades - Plugin SmartPOS">
+    <meta itemprop="description" content="Capítulo 5 Funcionalidades Para realizar requests, selecione o serviço desejado. Inicialização Ativação Pagamento via cartão Pagamento via Pix Cancelamento Impressão Consultar chave transacional Atualizar carga de tabelas Detecção de cartão Relatórios Visualizar último recibo Token único por cartão">
+    <meta itemprop="datePublished" content="2023-02-14T09:13:36-03:00">
+    <meta itemprop="dateModified" content="2023-02-14T09:13:36-03:00">
+    <meta itemprop="wordCount" content="38">
+    <title>Funcionalidades - Plugin SmartPOS</title>
+    <link href="./functions/index.xml" rel="alternate" type="application/rss+xml" title="Funcionalidades - Plugin SmartPOS">
+    <link href="./css/fontawesome-all.min.css?1734610944" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="./css/fontawesome-all.min.css?1734610944" rel="stylesheet"></noscript>
+    <link href="./css/auto-complete.css?1734610944" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="./css/auto-complete.css?1734610944" rel="stylesheet"></noscript>
+    <link href="./css/perfect-scrollbar.min.css?1734610944" rel="stylesheet">
+    <link href="./css/theme.css?1734610944" rel="stylesheet">
+    <link href="./css/format-html.css?1734610944" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='.';
+      window.relearn.relBaseUri='.';
+      window.relearn.absBaseUri='\/\/localhost:1313';
+      window.relearn.min = ``;
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.relearn.themevariants = [ 'orange' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant");
+        var select = document.querySelector("#R-select-variant");
+        if (select) {
+          select.value = variant;
+        }
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.localStorage.getItem(window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.localStorage.setItem(window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+      // translations
+      window.T_Copy_to_clipboard = `Copiar para a área de transferência`;
+      window.T_Copied_to_clipboard = `Copiado para a área de transferência!`;
+      window.T_Copy_link_to_clipboard = `Link de cópia para a área de transferência`;
+      window.T_Link_copied_to_clipboard = `Link copiado para a área de transferência!`;
+      window.T_Reset_view = `Repor vista`;
+      window.T_View_reset = `Ver reposição!`;
+      window.T_No_results_found = `Nenhum resultado encontrado para "{0}"`;
+      window.T_N_results_found = `{1} resultados encontrados para "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="./functions.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Índice (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#capítulo-5">Capítulo 5</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="topbar-breadcrumbs highlightable">
+            Funcionalidades
+          </span>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="./first_steps/deploy/tectoy.html" title="Tectoy/Pax (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="./functions/activation.html" title="Ativação (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Mais"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable functions" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="funcionalidades">Funcionalidades</h1>
+
+<h3 id="capítulo-5">Capítulo 5</h3>
+<h1 id="funcionalidades">Funcionalidades</h1>
+<h4 id="para-realizar-requests-selecione-o-serviço-desejado">Para realizar requests, selecione o serviço desejado.</h4>
+<ul>
+<li><a href="./functions/plug.html#Inicializar">Inicialização</a></li>
+<li><a href="./functions/activation.html#Ativação">Ativação</a></li>
+<li><a href="./functions/card_payment.html#Pagamento">Pagamento via cartão</a></li>
+<li><a href="./functions/pix_payment.html#Pix">Pagamento via Pix</a></li>
+<li><a href="./functions/cancel_payment.html#Cancelamento">Cancelamento</a></li>
+<li><a href="./functions/print.html#Impressão">Impressão</a></li>
+<li><a href="./functions/check_zoop_key.html#Consultar\\schave">Consultar chave transacional</a></li>
+<li><a href="./functions/force_table_load.html#Forçar\\scarga\\sde\\stabelas">Atualizar carga de tabelas</a></li>
+<li><a href="./functions/card_detector.html#Detecção\\sde\\scartão">Detecção de cartão</a></li>
+<li><a href="./functions/reports.html#Relatórios">Relatórios</a></li>
+<li><a href="./functions/last_receipt.html#Visualizar\\súltimo\\srecibo">Visualizar último recibo</a></li>
+<li><a href="./functions/card_fingerprint.html#Token\\sdo\\scartão">Token único por cartão</a></li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 841.9 595.3" style="enable-background:new 0 0 841.9 595.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1D1D1B;}
+	.st1{fill:#FF7300;}
+	.st2{fill:#FF9B00;}
+	.st3{fill:url(#SVGID_1_);}
+	.st4{fill:url(#SVGID_2_);}
+	.st5{fill:#FFFFFF;}
+</style>
+<rect x="0.2" y="-615.3" class="st0" width="841.7" height="595.3"/>
+<rect x="1720" y="-615.3" class="st0" width="841.9" height="595.3"/>
+<g>
+	<path class="st1" d="M1294.1-303.2h-44.9c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h44.9
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C1295-303,1294.6-303.2,1294.1-303.2z"/>
+	<path class="st2" d="M1257.9-332.1h27.3l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4
+		C1257-332.4,1257.4-332.1,1257.9-332.1z"/>
+</g>
+<g>
+	<path class="st1" d="M2156-303.2h-44.9c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h44.9
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C2156.9-303,2156.5-303.2,2156-303.2z"/>
+	<path class="st2" d="M2119.8-332.1h27.3l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4S2119.3-332.1,2119.8-332.1z"
+		/>
+</g>
+<rect x="858.1" y="-0.7" class="st1" width="841.8" height="596"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="2140.3674" y1="595.2701" x2="2140.3674" y2="-4.580800e-02">
+	<stop  offset="0" style="stop-color:#FF0064"/>
+	<stop  offset="0.6655" style="stop-color:#FF501F"/>
+	<stop  offset="1" style="stop-color:#FF7300"/>
+</linearGradient>
+<rect x="1719.5" y="0" class="st3" width="841.8" height="595.3"/>
+<rect x="-861.9" y="-0.7" class="st1" width="841.8" height="596"/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="420.3674" y1="595.2701" x2="420.3674" y2="-4.580800e-02">
+	<stop  offset="0" style="stop-color:#FF0064"/>
+	<stop  offset="0.6655" style="stop-color:#FF501F"/>
+	<stop  offset="1" style="stop-color:#FF7300"/>
+</linearGradient>
+<rect x="-0.5" y="0" class="st4" width="841.8" height="595.3"/>
+<g>
+	<path class="st5" d="M1294.1,312.1h-44.9c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h44.9
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C1295,312.3,1294.6,312.1,1294.1,312.1z"/>
+	<path class="st5" d="M1257.9,283.1h27.3l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4
+		C1257,282.9,1257.4,283.1,1257.9,283.1z"/>
+</g>
+<g>
+	<path class="st5" d="M2156,312.1h-44.9c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h44.9
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C2156.9,312.3,2156.5,312.1,2156,312.1z"/>
+	<path class="st5" d="M2119.8,283.1h27.3l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4
+		C2118.9,282.9,2119.3,283.1,2119.8,283.1z"/>
+</g>
+<g>
+	<path class="st1" d="M-459.1-331.9c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C-447.2-330.3-451.7-331.9-459.1-331.9z
+		 M-453-316.2l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C-452.7-319.7-452.6-318.2-453-316.2z"/>
+	<path class="st1" d="M-412.7-331.9c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C-400.8-330.3-405.3-331.9-412.7-331.9z
+		 M-406.6-316.2l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C-406.3-319.7-406.1-318.2-406.6-316.2z"/>
+	<path class="st1" d="M-489.9-309.2H-531c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h41.1
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C-488.9-309-489.4-309.2-489.9-309.2z"/>
+	<path class="st2" d="M-522.2-338.1h27.3l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4
+		C-523.2-338.3-522.7-338.1-522.2-338.1z"/>
+	<path class="st1" d="M-349.8-327.1c-2.5-3.2-6.3-4.9-12.6-4.9c-6.3,0-10,1.2-14,4l0-1.6c0-0.7-0.5-1.3-1.3-1.3l-0.1,0h-6
+		c-0.7,0-1.3,0.5-1.5,1.2l-9.6,40.6c-0.1,0.4-0.1,0.8,0.2,1.2c0.3,0.5,0.8,0.8,1.3,0.8h7.1c0.7,0,1.3-0.5,1.5-1.2l3.2-13.5
+		c2.9,2.5,6.1,3.7,11.7,3.7c12.4,0,19-5.2,21.4-15.6l0.4-1.9C-347.1-320.5-347.7-324.3-349.8-327.1z M-358.4-316.4l-0.4,1.6
+		c-1.6,6.6-8.2,7.5-12.5,7.5c-7.3,0-7.7-2.6-8-4.7l1.1-4.9c2.1-4.1,6.2-6.1,12.5-6.1c3.9,0,5.7,0.8,6.8,2.3
+		C-358-319.7-357.9-318.2-358.4-316.4z"/>
+</g>
+<g>
+	<path class="st1" d="M402.8-331.9c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C414.7-330.3,410.1-331.9,402.8-331.9z
+		 M408.9-316.2l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C409.2-319.7,409.3-318.2,408.9-316.2z"/>
+	<path class="st1" d="M449.2-331.9c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C461.1-330.3,456.6-331.9,449.2-331.9z
+		 M455.3-316.2l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C455.6-319.7,455.8-318.2,455.3-316.2z"/>
+	<path class="st1" d="M372-309.2h-41.1c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h41.1
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C373-309,372.5-309.2,372-309.2z"/>
+	<path class="st2" d="M339.7-338.1H367l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4
+		C338.7-338.3,339.2-338.1,339.7-338.1z"/>
+	<path class="st1" d="M512.1-327.1c-2.5-3.2-6.3-4.9-12.6-4.9c-6.3,0-10,1.2-14,4l0-1.6c0-0.7-0.5-1.3-1.3-1.3l-0.1,0h-6
+		c-0.7,0-1.3,0.5-1.5,1.2l-9.6,40.6c-0.1,0.4-0.1,0.8,0.2,1.2c0.3,0.5,0.8,0.8,1.3,0.8h7.1c0.7,0,1.3-0.5,1.5-1.2l3.2-13.5
+		c2.9,2.5,6.1,3.7,11.7,3.7c12.4,0,19-5.2,21.4-15.6l0.4-1.9C514.7-320.5,514.2-324.3,512.1-327.1z M503.5-316.4l-0.4,1.6
+		c-1.6,6.6-8.2,7.5-12.5,7.5c-7.3,0-7.7-2.6-8-4.7l1.1-4.9c2.1-4.1,6.2-6.1,12.5-6.1c3.9,0,5.7,0.8,6.8,2.3
+		C503.8-319.7,504-318.2,503.5-316.4z"/>
+</g>
+<g>
+	<path class="st5" d="M-459.1,283.3c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C-447.2,285-451.7,283.3-459.1,283.3z
+		 M-453,299.1l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C-452.7,295.6-452.6,297.1-453,299.1z"/>
+	<path class="st5" d="M-412.7,283.3c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C-400.8,285-405.3,283.3-412.7,283.3z
+		 M-406.6,299.1l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C-406.3,295.6-406.1,297.1-406.6,299.1z"/>
+	<path class="st5" d="M-489.9,306.1H-531c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h41.1
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C-488.9,306.3-489.4,306.1-489.9,306.1z"/>
+	<path class="st5" d="M-522.2,277.2h27.3l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4
+		C-523.2,277-522.7,277.2-522.2,277.2z"/>
+	<path class="st5" d="M-349.8,288.2c-2.5-3.2-6.3-4.9-12.6-4.9c-6.3,0-10,1.2-14,4l0-1.6c0-0.7-0.5-1.3-1.3-1.3l-0.1,0h-6
+		c-0.7,0-1.3,0.5-1.5,1.2l-9.6,40.6c-0.1,0.4-0.1,0.8,0.2,1.2c0.3,0.5,0.8,0.8,1.3,0.8h7.1c0.7,0,1.3-0.5,1.5-1.2l3.2-13.5
+		c2.9,2.5,6.1,3.7,11.7,3.7c12.4,0,19-5.2,21.4-15.6l0.4-1.9C-347.1,294.8-347.7,291-349.8,288.2z M-358.4,298.9l-0.4,1.6
+		c-1.6,6.6-8.2,7.5-12.5,7.5c-7.3,0-7.7-2.6-8-4.7l1.1-4.9c2.1-4.1,6.2-6.1,12.5-6.1c3.9,0,5.7,0.8,6.8,2.3
+		C-358,295.6-357.9,297-358.4,298.9z"/>
+</g>
+<g>
+	<path class="st5" d="M402.8,283.3c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C414.7,285,410.1,283.3,402.8,283.3z
+		 M408.9,299.1l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C409.2,295.6,409.3,297.1,408.9,299.1z"/>
+	<path class="st5" d="M449.2,283.3c-5.5,0-9.5,0.9-13.5,3.1c-4.7,2.5-7.7,6.6-9,12.2l-0.5,2.2c-1.1,4.7-0.6,8.4,1.4,11.1
+		c2.8,3.6,7.1,5.1,14.5,5.1c13.1,0,20.4-4.9,22.8-15.3l0.5-2.2c1.1-4.6,0.6-8.2-1.5-10.9C461.1,285,456.6,283.3,449.2,283.3z
+		 M455.3,299.1l-0.4,1.5c-1.3,5-5.1,7.4-11.7,7.4c-3.9,0-5.4-0.9-6.5-2.2c-0.8-1.1-1-2.6-0.6-4.5l0.4-1.6c1.3-5.2,4.8-7.4,11.6-7.4
+		c4,0,5.5,0.8,6.6,2.2C455.6,295.6,455.8,297.1,455.3,299.1z"/>
+	<path class="st5" d="M372,306.1h-41.1c-0.7,0-1.4,0.5-1.6,1.2l-1.6,6.8c-0.1,0.5,0,1,0.3,1.4c0.3,0.4,0.8,0.6,1.3,0.6h41.1
+		c0.7,0,1.4-0.5,1.6-1.2l1.6-6.8c0.1-0.5,0-1-0.3-1.4C373,306.3,372.5,306.1,372,306.1z"/>
+	<path class="st5" d="M339.7,277.2H367l-18.4,15.3c-0.4,0.3-0.6,0.7-0.6,1.2c0,0.5,0.2,0.9,0.5,1.2l5,4.8c0.3,0.3,0.7,0.5,1.1,0.5
+		c0.4,0,0.7-0.1,1-0.4l38.1-32.4l0.2-0.2h-52.6c-0.8,0-1.4,0.5-1.6,1.2l-1.6,6.7c-0.1,0.5,0,1,0.3,1.4
+		C338.7,277,339.2,277.2,339.7,277.2z"/>
+	<path class="st5" d="M512.1,288.2c-2.5-3.2-6.3-4.9-12.6-4.9c-6.3,0-10,1.2-14,4l0-1.6c0-0.7-0.5-1.3-1.3-1.3l-0.1,0h-6
+		c-0.7,0-1.3,0.5-1.5,1.2l-9.6,40.6c-0.1,0.4-0.1,0.8,0.2,1.2c0.3,0.5,0.8,0.8,1.3,0.8h7.1c0.7,0,1.3-0.5,1.5-1.2l3.2-13.5
+		c2.9,2.5,6.1,3.7,11.7,3.7c12.4,0,19-5.2,21.4-15.6l0.4-1.9C514.7,294.8,514.2,291,512.1,288.2z M503.5,298.9l-0.4,1.6
+		c-1.6,6.6-8.2,7.5-12.5,7.5c-7.3,0-7.7-2.6-8-4.7l1.1-4.9c2.1-4.1,6.2-6.1,12.5-6.1c3.9,0,5.7,0.8,6.8,2.3
+		C503.8,295.6,504,297,503.5,298.9z"/>
+</g>
+</svg>
+        </div>
+        <script>
+          window.index_js_url="./searchindex.pt.js?1734610944";
+        </script>
+        <search><form action="./search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Procurar (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Procurar</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Procurar...">
+            <button class="search-clear" type="button" data-search-clear="" title="Limpar pesquisa"><i class="fas fa-times" title="Limpar pesquisa"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['pt'];
+        </script>
+        <script src="./js/auto-complete.js?1734610944" defer></script>
+        <script src="./js/lunr/lunr.min.js?1734610944" defer></script>
+        <script src="./js/lunr/lunr.stemmer.support.min.js?1734610944" defer></script>
+        <script src="./js/lunr/lunr.multi.min.js?1734610944" defer></script>
+        <script src="./js/lunr/lunr.pt.min.js?1734610944" defer></script>
+        <script src="./js/search.js?1734610944" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="./index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-shortcutmenu-home" class="R-sidebarmenu">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/onboarding.html"><a class="padding" href="./onboarding.html"><b>1. </b>Onboarding</a><ul id="R-subsections-0460cb8850cf3b8ece07dc5c51a10e63" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/requirements.html"><a class="padding" href="./requirements.html"><b>2. </b>Requisitos</a><ul id="R-subsections-23ecedae6cf14933013c2891bf81247b" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/downloads.html"><a class="padding" href="./downloads.html"><b>3. </b>Downloads</a></li>
+            <li class="" data-nav-id="/first_steps.html"><a class="padding" href="./first_steps.html"><b>4. </b>Primeiros passos</a><ul id="R-subsections-04e019da6f6da7a7c9ab95cd4e868cc6" class="collapsible-menu"></ul></li>
+            <li class="active parent " data-nav-id="/functions.html"><a class="padding" href="./functions.html"><b>5. </b>Funcionalidades</a><ul id="R-subsections-501822a3ea1c7f0b946df0bd1ab5ce14" class="collapsible-menu">
+            <li class="" data-nav-id="/functions/activation.html"><a class="padding" href="./functions/activation.html">Ativação</a></li>
+            <li class="" data-nav-id="/functions/plug.html"><a class="padding" href="./functions/plug.html">Inicialização</a></li>
+            <li class="" data-nav-id="/functions/card_payment.html"><a class="padding" href="./functions/card_payment.html">Pagamento via cartão</a></li>
+            <li class="" data-nav-id="/functions/pix_payment.html"><a class="padding" href="./functions/pix_payment.html">Pagamento via Pix</a></li>
+            <li class="" data-nav-id="/functions/cancel_payment.html"><a class="padding" href="./functions/cancel_payment.html">Cancelamento</a></li>
+            <li class="" data-nav-id="/functions/print.html"><a class="padding" href="./functions/print.html">Impressão</a></li>
+            <li class="" data-nav-id="/functions/check_zoop_key.html"><a class="padding" href="./functions/check_zoop_key.html">Consultar chave transacional</a></li>
+            <li class="" data-nav-id="/functions/force_table_load.html"><a class="padding" href="./functions/force_table_load.html">Atualizar carga de tabelas</a></li>
+            <li class="" data-nav-id="/functions/card_detector.html"><a class="padding" href="./functions/card_detector.html">Detecção de cartão</a></li>
+            <li class="alwaysopen " data-nav-id="/functions/reports.html"><a class="padding" href="./functions/reports.html">Relatórios</a><ul id="R-subsections-f0365786cbfef74cb03a8a23b4e0a571" class="collapsible-menu"></ul></li>
+            <li class="" data-nav-id="/functions/last_receipt.html"><a class="padding" href="./functions/last_receipt.html">Visualizar último recibo</a></li>
+            <li class="" data-nav-id="/functions/card_fingerprint.html"><a class="padding" href="./functions/card_fingerprint.html">Token único por cartão</a></li></ul></li>
+            <li class="" data-nav-id="/manufacturer.html"><a class="padding" href="./manufacturer.html"><b>6. </b>Métodos do fabricante</a></li>
+            <li class="" data-nav-id="/removezoopapp.html"><a class="padding" href="./removezoopapp.html"><b>7. </b>Remove aplicativo GPOS720</a></li>
+            <li class="" data-nav-id="/releases.html"><a class="padding" href="./releases.html"><b>8. </b>Releases</a><ul id="R-subsections-a71c2f29677ba690c1b8bf454f228c9c" class="collapsible-menu"></ul></li>
+          </ul>
+        </div>
+    
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Idioma</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-pt" value="#R-select-language-pt" data-url="./functions.html" lang="pt" selected>Portuguese</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Tema</label>
+                    <select id="R-select-variant" onchange="window.relearn.changeVariant( this.value );">
+                      <option id="R-select-variant-orange" value="orange" selected>Orange</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.relearn.markVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Limpar Histórico</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter"><center>
+    <p><a href="https://zoop.com.br"><h5>Zoop</h5></a></p>
+</center>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="./js/clipboard.min.js?1734610944" defer></script>
+    <script src="./js/perfect-scrollbar.min.js?1734610944" defer></script>
+    <script src="./js/theme.js?1734610944" defer></script>
+  </body>
+</html>

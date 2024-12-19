@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ativação - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/activation.html</link>
+    <description>Ativação É necessário inicializar o SDK sem passar as credenciais, afim de realizar a requisição para recuperar as credenciais. Zoop.Initialize(context) Neste momento, é necessário injetar o plugin do smartPOS, conforme abaixo: val smartPOSPlugin = Zoop.make&lt;SmartPOSPlugin&gt;() Zoop.plug(smartPOSPlugin) Com o sdk inicializado, é necessário fazer uma ativação pelo seu dashboard para recuperar as credenciais*, utilizando um token gerado com a requisição de ativação, conforme exemplo a seguir. Dica Cada dispositivo só precisa fazer essa ativação uma única vez afim de criar o dispositivo na nossa base de dados, associando o dispositivo ao estabelecimento, após isso, é possível inicializar o plugin diretamente com as credenciais recebidas.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/activation/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

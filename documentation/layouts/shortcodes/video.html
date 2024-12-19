@@ -1,0 +1,4 @@
+<video width="{{ .Get "width" | default "640" }}" height="{{ .Get "height" | default "360" }}" controls>
+    <source src="{{ .Site.BaseURL }}{{ .Get "src" }}" type="video/mp4">
+    Seu navegador não suporta o elemento de vídeo.
+</video>

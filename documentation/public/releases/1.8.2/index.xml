@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.8.2 - Plugin SmartPOS</title>
+    <link>//localhost:1313/releases/1.8.2.html</link>
+    <description>Nota Importante Devido a alterações internas, houve uma mudança no processo de inicialização do plugin, a partir desta versão a inicialização do plugin não será mais através da função Zoop.Make. Será feita através da nova função Zoop.constructorParameters()&#xA;Exemplo de inicialização do plugin em versões anteriores à esta: Zoop.findPlugin&lt;SmartPOSPlugin&gt;() ?: Zoop.make&lt;SmartPOSPlugin&gt;().run(Zoop::plug) Exemplo de inicialização do plugin a partir desta versão: Zoop.findPlugin&lt;SmartPOSPlugin&gt;() ?: Zoop.plug(SmartPOSPlugin(Zoop.constructorParameters())) Dependências Nesta nova versão, é necessário adcionar duas dependências a nível de aplicação.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/releases/1.8.2/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

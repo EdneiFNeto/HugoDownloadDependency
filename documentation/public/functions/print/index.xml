@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Impressão - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/print.html</link>
+    <description>Impressão Faz-se uso da classe SmartPOSPrinterRequestBuilder. Aviso Este SDK não tem suporte para criação de recibo de pagamento customizado. Caso o integrador queira fazer uso da impressora nesse formato, deve-se utilizar a API do fabricante com suporte do mesmo.&#xA;Observações O plugin é capaz de imprimir recibos do tipo:&#xA;ReceiptType { ESTABLISHMENT, // Via estabelecimento CUSTOMER, // Via cliente REPRINT_ESTABLISHMENT, // Reimpressão de via do estabelecimento REPRINT_CUSTOMER, // Reimpressão de via do cliente DETAILED_REPORT, // Relatório detalhado¹ CONSOLIDATED_REPORT, // Relatório consolidado¹ SHIFT_REPORT // Relatório de fechamento de turno¹ } ¹ Para esses fluxos, nesse momento, é necessário receber um objeto pronto do respectivo tipo.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/print/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

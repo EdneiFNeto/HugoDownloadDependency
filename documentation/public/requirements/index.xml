@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Requisitos - Plugin SmartPOS</title>
+    <link>//localhost:1313/requirements.html</link>
+    <description>Capítulo 2 Requisitos Resumo Aqui você encontra os requisitos para trabalhar com o terminal em sua máquina. Escolha o fabricante do seu terminal Tectoy/Pax Gertec</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Tue, 14 Feb 2023 09:13:36 -0300</lastBuildDate>
+    <atom:link href="//localhost:1313/requirements/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gertec</title>
+      <link>//localhost:1313/requirements/gertec.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/requirements/gertec.html</guid>
+      <description>Capítulo 2 Requisitos Gertec GPOS720 Versão de Firmware Para uso no GPOS720, é necessário que o sistema operacional do dispositivo se encontre na Versão 164.0 ou superior. Clique aqui para ter acesso ao site do desenvolvedor da Gertec Verificando a versão do Firmware Para verificar a versão do firmware, é possível utilizar o menu do android, seguindo o caminho conforme fluxo abaixo: Configurar &gt; Sobre o dispositivo &gt; Numero da compilação Atualizando Firmware Siga as instruções do link a seguir, clique aqui. Ficha técnica Informações Valores Versão do Android Android 10 Processador Quad-Core 1.3GHz Memória RAM 2GB Memória Flash 16GB Display 5,5” 1280x720 Touchscreen capacitivo Câmera traseira 8MP, foco automático Câmera frontal Câmera frontal opcional de 5 MP Segurança PCI PTS 5.x e totalmente sem contato Conexão 4G + WiFi 2.4GHz / 5GHz / a/b/g/n + Bluetooth 4.2 e BLE Impressão Impressora Térmica Rápida bobinas com 40mm de diâmetro GPS GPS/ A-GPS / Glonass Bateria 7,6V / 2.500mAh Alimentação Fonte externa 5V - 2A - 110/220V Via USB C Peso 380.00 gr Dimensões (C x L x A) 213 X 79 x 52mm</description>
+    </item>
+    <item>
+      <title>Tectoy/Pax</title>
+      <link>//localhost:1313/requirements/tectoy.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/requirements/tectoy.html</guid>
+      <description>Capítulo 2 Requisitos Pax A910 Versão de Firmware Para uso no A910, é necessário que o dispositivo se encontre nas versões de firmware listadas a seguir: A910_PayDroid_6.0_Leo_V07.3.03_Brazil_20220927_OTA A910_PayDroid_6.0_Leo_modem_V07.3.10_OTA Verificando a versão do Firmware Para verificar a versão do firmware, é possível utilizar o menu do android, seguindo o caminho conforme fluxo abaixo: Configurar &gt; Sobre o telefone &gt; Custom build number Atualizando Firmware Para atualizar o firmware, é necessário entrar em contato com a Tectoy. Ficha técnica Informações Valores Versão do Android Android 6.0 ou 7.0 Câmera traseira Câmera traseira de 2 megapixels (ou 5 MP opcional) Câmera frontal Câmera frontal opcional de 0,3 MP Processador Processador Quad-core Cortex A7 Segurança PCI PTS 5.x e totalmente sem contato Conexão 4G + WiFi + Bluetooth Touch Tela de toque HD de 5 &#34; Impressão Impressora Térmica Rápida bobinas com 40mm de diâmetro GPS GPS embutido Recarregador Estação de acoplamento opcional Peso 500.00 gr Dimensões (L x A x C) 20.00 x 10.00 x 20.00 cm</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Consultar chave transacional - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/check_zoop_key.html</link>
+    <description>Consultar chave Faz-se uso da classe SmartPOSZoopKeyValidationRequestBuilder. Observações Não é necessário ter inicializado o plugin previamente Caso o dispositivo não possua a chave, é necessário envio do terminal à fabricante(Pax) para gravação de chave. Exemplo val request = SmartPOSPlugin.createZoopKeyValidationRequestBuilder() .callback(object: Callback&lt;SmartPOSZoopKeyValidationResponse&gt;() { override fun onSuccess(response: SmartPOSZoopKeyValidationResponse) { if (response.hasKey) { handleTerminalHasTransactionKey() } else { // terminal doesn&#39;t have transactional key } } override fun onFail(error: Throwable){ // terminal doesn&#39;t have transactional key } }) .build() Zoop.post(request)</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/check_zoop_key/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

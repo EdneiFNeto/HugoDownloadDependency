@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inicialização - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/plug.html</link>
+    <description>Inicialização Para utilizar o plugin, é necessário inicializar o SDK. Dica É necessário ativar o dispositivo conforme descrito aqui.&#xA;Exemplo após ativação Zoop.Initialize(context) { credentials { marketplace = &#34;{marketplace id}&#34; seller = &#34;{seller id}&#34; accessKey = &#34;{chave de acesso}&#34; } } Dados de ativação marketplace: marketplace salvo durante a ativação via dashboard.&#xA;seller: seller salvo durante a ativação via dashboard.&#xA;accessKey: accessKey salvo durante a ativação via dashboard.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/plug/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

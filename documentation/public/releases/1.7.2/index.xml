@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.7.2 - Plugin SmartPOS</title>
+    <link>//localhost:1313/releases/1.7.2.html</link>
+    <description>Pacote Basta modificar a versão no gradle, conforme exemplo:&#xA;implementation(&#34;br.zoop.pos.plugin:smartpos-gertec-gpos720:1.7.2&#34;) // Para a Gertec GPOS720 implementation(&#34;br.zoop.pos.plugin:smartpos-pax-a910:1.7.2&#34;) // Para a Pax A910 Release Notes Aceitar um parâmetro do tipo JsonObject para o campo metadata do pagamento. Correção de congelamento do teclado de senha para a Gertec GPOS720.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/releases/1.7.2/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

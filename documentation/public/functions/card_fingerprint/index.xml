@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Token único por cartão - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/card_fingerprint.html</link>
+    <description>Token único por cartão Faz-se uso da classe SmartPOSCardFingerprintRequestBuilder. Este request retorna um identificador único do cartão criptografado (hash). Dica Esta requisição não tem aplicação prática para o fluxo transacional, sendo apenas uma ferramenta caso a sua aplicação faça alguma métrica baseada em cliente. O mesmo dado é retornado ao fim de uma transação no objeto TransactionData&#xA;Exemplo SmartPOSPlugin.createCardFingerprintRequestBuilder() .callback(object : Callback&lt;SmartPOSCardFingerprintResponse&gt;() { override fun onFail(error: Throwable) { // Falha ao solicitar o dado } override fun onSuccess(response: SmartPOSCardFingerprintResponse) { response.fingerprint // token } }) .messageCallback(object : Callback&lt;MessageCallbackRequestField.MessageData&gt;() { override fun onFail(error: Throwable) { // Falha no fluxo de mensagens } override fun onSuccess(response: MessageCallbackRequestField.MessageData) { response.message // pode ser uma mensagem solicitando a inserção do cartão } }) .build().run(Zoop::post) Retorno /** * Classe responsável pela resposta de fingerprint do cartão. * @since v1.6.0 * @param fingerprint Fingerprint do cartão. * @param cardBrand Bandeira do cartão (pode ser inconsistente caso não identificado corretamente no bin). */ data class SmartPOSCardFingerprintResponse(val fingerprint: String, val cardBrand: CardBrand? = null)</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/card_fingerprint/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

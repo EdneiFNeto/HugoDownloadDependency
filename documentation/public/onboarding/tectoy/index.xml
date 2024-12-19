@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tectoy/Pax - Plugin SmartPOS</title>
+    <link>//localhost:1313/onboarding/tectoy.html</link>
+    <description>Capítulo 1 Onboarding Tectoy/Pax Processo de desenvolvimento Acione a TecToy sinalizando interesse para a Adriana Lima Madeira (adriana.madeira@tectoy.com | 11 94369-8661). Assine o NDA (Contrato de confidencialidade com Acordo de Não Divulgação) com a TecToy para compra de máquinas e início da demonstração do desenvolvimento da TecToy para o parceiro Zoop. Ele contém alguns detalhes como: quantidade de máquinas, prazo de entrega, cobertura para suporte a algum método durante o desenvolvimento, como, por exemplo a impressão. Paralelo a esse processo com a TecToy, o parceiro Zoop pode acessar livremente a documentação e realizar o Download do APK SDK Zoop, porém para realizar testes de algum fluxo, é necessário possuir as credenciais de acesso. Que o parceiro as adquire nesta etapa de Onboarding da Zoop. Ao final do seu desenvolvimento, envie para a TecToy sua aplicação homologada juntamente com o SDK Zoop, para que a TecToy embarque a solução nos seus terminais. Aviso Caso sua empresa desenvolva um novo App, deverá ser gerado um novo pacote e enviar a TecToy. E, caso a Zoop tenha um novo SDK, sua empresa deverá gerar um novo pacote. Ambas as atualizações em campo são de responsabilidade do parceiro.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="//localhost:1313/onboarding/tectoy/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

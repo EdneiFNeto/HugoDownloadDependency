@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Remove aplicativo GPOS720 - Plugin SmartPOS</title>
+    <link>//localhost:1313/removezoopapp.html</link>
+    <description>Capítulo 7 Remoção do Aplicativo da Zoop da GPOS720 Este tutorial orienta como remover o aplicativo da Zoop utilizando um pendrive USB-C ou através de um MDM (Mobile Device Management).&#xA;APK removedor do APP na SmartPOS GPOS720 Link para download do arquivo .zip Remoção via Pendrive USB-C 1. Preparar o Pendrive Obtenha um Pendrive USB-C: Certifique-se de que o pendrive é do tipo USB-C, compatível com as portas das máquinas onde o aplicativo será removido. 2. Limpar o Pendrive Conecte o pendrive ao seu computador. Abra o explorador de arquivos e localize o pendrive. Formate o pendrive, se necessário, para garantir que não haja arquivos indesejados. 3. Descompactar o Conteúdo no Pendrive Descompacte o Arquivo Comprimido: Baixe o arquivo comprimido que contém o script ou programa de remoção do aplicativo. Use um software de descompactação (como WinRAR ou 7-Zip) para extrair o conteúdo diretamente para o pendrive. Verifique se todos os arquivos necessários estão presentes no pendrive após a extração: enable_launcher_v3.0-signed_ProductionF.apk autoRun 4. Executar o Script de Remoção Conecte o Pendrive na Máquina de Destino: Insira o pendrive na porta USB-C da máquina onde o aplicativo será removido. Aguarde até que o script ou programa de remoção seja executado automaticamente. Confirme a Remoção: Siga as instruções na tela para confirmar a remoção do aplicativo. Após a remoção, o sistema pode solicitar que o pendrive seja desconectado. Demonstração de como ocorre a remoção via pendrive Seu navegador não suporta o elemento de vídeo. Informação Caso o vídeo não seja exibido corretamente, você pode baixá-lo pelo link.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/removezoopapp/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

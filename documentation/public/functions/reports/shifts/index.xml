@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Turnos - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/reports/shifts.html</link>
+    <description>Relatório de turnos O relatório de turnos é constituído por 3 requisições: Requisição que recupera um relatório do turno atual, ou, um turno previamente fechado. Requisição para fechar o turno, que recebe uma estrutura recuperada no request anterior. Requisição para recuperar uma lista com todos os turnos fechados anteriormente. Informação Caso não exista um turno fechado, é listado todas as transações do dispositivo desde a primeira transação. Caso exista um turno previamente fechado, o turno subsequente é listado a partir da data/hora do último turno.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/reports/shifts/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

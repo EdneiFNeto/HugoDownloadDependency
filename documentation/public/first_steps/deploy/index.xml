@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy - Plugin SmartPOS</title>
+    <link>//localhost:1313/first_steps/deploy.html</link>
+    <description>Escolha o fabricante do seu terminal Tectoy/Pax Gertec</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Tue, 14 Feb 2023 09:13:36 -0300</lastBuildDate>
+    <atom:link href="//localhost:1313/first_steps/deploy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gertec</title>
+      <link>//localhost:1313/first_steps/deploy/gertec.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/first_steps/deploy/gertec.html</guid>
+      <description>POS de desenvolvimento/debug Dica Você pode testar o deploy usando o código do aplicativo de exemplo disponibilizado.&#xA;Para realizar um deploy na máquina para teste, é possível utilizar o quickRun do Android Studio, conforme abaixo: Também é possível instalar via adb, após o build, navegar até a pasta em que o app se encontra e utilizar o comando: adb install -t nome_do_app.apk</description>
+    </item>
+    <item>
+      <title>Tectoy/Pax</title>
+      <link>//localhost:1313/first_steps/deploy/tectoy.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/first_steps/deploy/tectoy.html</guid>
+      <description>POS de desenvolvimento/debug Dica Você pode testar o deploy usando o código do aplicativo de exemplo disponibilizado.&#xA;Para realizar um deploy na máquina para teste, é possível utilizar o quickRun do Android Studio, conforme abaixo: Também é possível instalar via adb, após o build, navegar até a pasta em que o app se encontra e utilizar o comando: adb install -t nome_do_app.apk</description>
+    </item>
+  </channel>
+</rss>

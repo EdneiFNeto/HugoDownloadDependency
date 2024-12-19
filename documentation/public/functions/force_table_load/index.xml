@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Atualizar carga de tabelas - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/force_table_load.html</link>
+    <description>Forçar carga de tabelas Faz-se uso da classe SmartPOSTableLoadRequestBuilder. Observações Esta funcionalidade não é mandatória, visto que durante a transação, caso seja necessário, o dispositivo realizará a carga de tabelas, esta funcionalidade é apenas para forçar uma carga, sem prosseguir um fluxo de venda. Exemplo val request = SmartPOSPlugin.createTableLoadRequestBuilder() .callback(object : Callback&lt;SmartPOSTableLoadResponse&gt;() { override fun onFail(error: Throwable) { handleFailTableLoad(error) } override fun onSuccess(response: SmartPOSTableLoadResponse) { handleSuccessTableLoad(response) } }) .messageCallback(object : Callback&lt;MessageCallbackRequestField.MessageData&gt;() { override fun onFail(error: Throwable) { } override fun onSuccess(response: MessageCallbackRequestField.MessageData) { displayUserMessage(response.message) } }).build() Zoop.post(request)</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/force_table_load/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

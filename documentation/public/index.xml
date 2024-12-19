@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zoop SmartPOS Plugin - Plugin SmartPOS</title>
+    <link>//localhost:1313/index.html</link>
+    <description>Zoop SmartPOS Plugin O Plugin SmartPOS é responsável por consumir serviços de pagamento e cancelamento, além de diversas outras funcionalidades conforme listado abaixo.&#xA;Primeiros passos Onboarding Requisitos Downloads Configuração Principais funcionalidades Inicialização Ativação Pagamento via cartão Pagamento via Pix Cancelamento Impressão Consultar chave transacional Atualizar carga de tabelas Detecção de cartão Relatórios Visualizar último recibo Token único por cartão</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Tue, 14 Feb 2023 09:13:36 -0300</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Onboarding</title>
+      <link>//localhost:1313/onboarding.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/onboarding.html</guid>
+      <description>Capítulo 1 Onboarding Resumo Aqui, você recebe as credenciais de acesso ao dashboard. Escolha o fabricante do seu terminal Tectoy/Pax Gertec</description>
+    </item>
+    <item>
+      <title>Requisitos</title>
+      <link>//localhost:1313/requirements.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/requirements.html</guid>
+      <description>Capítulo 2 Requisitos Resumo Aqui você encontra os requisitos para trabalhar com o terminal em sua máquina. Escolha o fabricante do seu terminal Tectoy/Pax Gertec</description>
+    </item>
+    <item>
+      <title>Downloads</title>
+      <link>//localhost:1313/downloads.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/downloads.html</guid>
+      <description>Capítulo 3 Downloads Acesso aos arquivos de exemplo, e plugin para implementação do seu smartPOS.&#xA;Plugin SmartPOS Código do aplicativo de exemplo Gertec GPOS720 Código do aplicativo de exemplo Pax A910/A910S Aplicativo de ativação para Tectoy/Pax</description>
+    </item>
+    <item>
+      <title>Primeiros passos</title>
+      <link>//localhost:1313/first_steps.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/first_steps.html</guid>
+      <description>Capítulo 4 Primeiros passos Aqui, você vai aprender sobre o que um smartPOS e como dar o pontapé no desenvolvimento do seu produto com o plugin da Zoop.</description>
+    </item>
+    <item>
+      <title>Funcionalidades</title>
+      <link>//localhost:1313/functions.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/functions.html</guid>
+      <description>Capítulo 5 Funcionalidades Para realizar requests, selecione o serviço desejado. Inicialização Ativação Pagamento via cartão Pagamento via Pix Cancelamento Impressão Consultar chave transacional Atualizar carga de tabelas Detecção de cartão Relatórios Visualizar último recibo Token único por cartão</description>
+    </item>
+    <item>
+      <title>Métodos do fabricante</title>
+      <link>//localhost:1313/manufacturer.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/manufacturer.html</guid>
+      <description>Capítulo 6 Métodos do fabricante É possível utilizar um request para obter uma referência que dá acesso aos métodos do fabricante, possibilitando:&#xA;Faz-se uso da classe SmartPOSPublicDeviceRequestBuilder. Métodos disponíveis setMenuPasswordEnabled -&gt; Habilita ou desabilita a senha para acesso às configurações do Android. setApn -&gt; Configura e conecta em uma apn, passando um objeto do tipo ApnCredentials. setNavigationKeyEnabled -&gt; Habilita ou desabilita um botão físico de navegação do Android. setAutoTimeZone -&gt; Habilita ou desabilita o fuso horário automático. setAutoTime -&gt; Habilita ou desabilita a hora automática. setTimeZone -&gt; Configura o fuso horário no formato Continent/Cidade ex: America/Sao_Paulo getSerialNumber -&gt; Retorna o número de série do terminal. isDebugDevice -&gt; Flag que indica se o terminal é de desenvolvimento. Exemplo SmartPOSPlugin.createPublicDeviceRequestBuilder() .callback(object : Callback&lt;WeakReference&lt;PublicDevice&gt;&gt;() { override fun onFail(error: Throwable) { } override fun onSuccess(response: WeakReference&lt;PublicDevice&gt;) { response.get()?.setMenuPasswordEnabled(false) } }).build().run { Zoop.post(this) }</description>
+    </item>
+    <item>
+      <title>Remove aplicativo GPOS720</title>
+      <link>//localhost:1313/removezoopapp.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/removezoopapp.html</guid>
+      <description>Capítulo 7 Remoção do Aplicativo da Zoop da GPOS720 Este tutorial orienta como remover o aplicativo da Zoop utilizando um pendrive USB-C ou através de um MDM (Mobile Device Management).&#xA;APK removedor do APP na SmartPOS GPOS720 Link para download do arquivo .zip Remoção via Pendrive USB-C 1. Preparar o Pendrive Obtenha um Pendrive USB-C: Certifique-se de que o pendrive é do tipo USB-C, compatível com as portas das máquinas onde o aplicativo será removido. 2. Limpar o Pendrive Conecte o pendrive ao seu computador. Abra o explorador de arquivos e localize o pendrive. Formate o pendrive, se necessário, para garantir que não haja arquivos indesejados. 3. Descompactar o Conteúdo no Pendrive Descompacte o Arquivo Comprimido: Baixe o arquivo comprimido que contém o script ou programa de remoção do aplicativo. Use um software de descompactação (como WinRAR ou 7-Zip) para extrair o conteúdo diretamente para o pendrive. Verifique se todos os arquivos necessários estão presentes no pendrive após a extração: enable_launcher_v3.0-signed_ProductionF.apk autoRun 4. Executar o Script de Remoção Conecte o Pendrive na Máquina de Destino: Insira o pendrive na porta USB-C da máquina onde o aplicativo será removido. Aguarde até que o script ou programa de remoção seja executado automaticamente. Confirme a Remoção: Siga as instruções na tela para confirmar a remoção do aplicativo. Após a remoção, o sistema pode solicitar que o pendrive seja desconectado. Demonstração de como ocorre a remoção via pendrive Seu navegador não suporta o elemento de vídeo. Informação Caso o vídeo não seja exibido corretamente, você pode baixá-lo pelo link.</description>
+    </item>
+    <item>
+      <title>Releases</title>
+      <link>//localhost:1313/releases.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/releases.html</guid>
+      <description>Capítulo 7 Releases 1.8.4-latest 1.8.3 1.8.2 1.7.2 1.7.1 1.6.4 1.6.3 1.6.2 1.6.1 1.6.0 1.5.1 1.5.0</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.7.1 - Plugin SmartPOS</title>
+    <link>//localhost:1313/releases/1.7.1.html</link>
+    <description>Pacote Basta incluir o plugin para o modelo, com a respectiva versão, no gradle, conforme exemplo:&#xA;implementation(&#34;br.zoop.pos.plugin:smartpos-gertec-gpos720:1.7.1-rc-1&#34;) // Para a Gertec GPOS720 implementation(&#34;br.zoop.pos.plugin:smartpos-pax-a910:1.7.1-rc-1&#34;) // Para a Pax A910 Release Notes Adicionado suporte a Gertec GPOS720 Adicionado suporte a metadados Obtenção do ID da transação para pagamentos por Pix Inclusão do número de parcelas para crédito parcelado no relatório detalhado Impressão do endereço na via do cliente</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/releases/1.7.1/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

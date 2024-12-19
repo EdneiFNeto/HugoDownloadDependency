@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tectoy/Pax - Plugin SmartPOS</title>
+    <link>//localhost:1313/first_steps/deploy/tectoy.html</link>
+    <description>POS de desenvolvimento/debug Dica Você pode testar o deploy usando o código do aplicativo de exemplo disponibilizado.&#xA;Para realizar um deploy na máquina para teste, é possível utilizar o quickRun do Android Studio, conforme abaixo: Também é possível instalar via adb, após o build, navegar até a pasta em que o app se encontra e utilizar o comando: adb install -t nome_do_app.apk</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="//localhost:1313/first_steps/deploy/tectoy/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

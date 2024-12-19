@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Detecção de cartão - Plugin SmartPOS</title>
+    <link>//localhost:1313/functions/card_detector.html</link>
+    <description>Detecção de cartão Faz-se uso da classe SmartPOSCardDetectionRequestBuilder. Métodos disponíveis Cartão inserido Request para verificar que o cartão foi inserido. Uma vez que este request é realizado, roda uma tarefa em segundo plano consultando o momento que o cartão é inserido, sendo interrompido de duas maneiras: Sendo cancelado explicitamente request.cancel(). No momento que o cartão é inserido. Exemplo val request = SmartPOSPlugin.createCardDetectionRequestBuilder() .callback(object : Callback&lt;SmartPOSCardDetectionResponse&gt;() { override fun onSuccess(response: SmartPOSCardDetectionResponse) { if (response.cardWasDetected) { handleCardWasDetected() } } override fun onFail(error: Throwable) { } }) .build() Zoop.post(request!!) Cartão removido Request para verificar, ao fim de uma transação, que o cartão está inserido, e mandar remover, caso necessário. Uma vez que o cartão não esteja presente, será lançado o callback onComplete. Uma vez que este request é realizado, roda uma tarefa em segundo plano consultando o momento que o cartão é removido, sendo interrompido de duas maneiras: Sendo cancelado explicitamente request.cancel(). No momento que o cartão é removido. obs.: Caso o cartão não esteja presente no momento do request, onComplete é retornado instantaneamente. Exemplo val request = SmartPOSPlugin.createCardDetectionRequestBuilder() .cardDetectionType(CardDetectionTypeRequestField.CardDetectionType.REMOVED) .callback(object : Callback&lt;SmartPOSCardDetectionResponse&gt;() { override fun onSuccess(response: SmartPOSCardDetectionResponse) { CoroutineScope(Dispatchers.Main).launch { if (response.cardWasDetected) { handleCardStillInserted() } } } override fun onFail(error: Throwable) { } override fun onComplete() { handleCardIsNotInserted() } }) .build() Zoop.post(request)</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/functions/card_detector/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

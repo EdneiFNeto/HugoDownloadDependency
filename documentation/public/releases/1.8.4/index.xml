@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1.8.4 - Plugin SmartPOS</title>
+    <link>//localhost:1313/releases/1.8.4.html</link>
+    <description>Pacote Basta modificar a versão no gradle, conforme exemplo:&#xA;implementation(&#34;br.zoop.pos.plugin:smartpos-gertec-gpos720:1.8.4&#34;) // Para a Gertec GPOS720 implementation(&#34;br.zoop.pos.plugin:smartpos-pax-a910:1.8.4&#34;) // Para a Pax A910 Aviso Será necessário adicionar novas permissões no AndroidManifest.xml do aplicativo.&#xA;&lt;uses-permission android:name=&#34;android.permission.READ_PHONE_STATE&#34; /&gt; &lt;uses-permission android:name=&#34;android.permission.ACCESS_FINE_LOCATION&#34; /&gt; Release Notes Correção do fluxo de confirmação de transações Adiciona o envio de logs de erro e métricas caso seja habilitado pela aplicação na inicialização Valida versão mínima de FW para dispositivos Gertec Adiciona uma callback no pagamento, responsável por capturar inputs da aplicação</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/releases/1.8.4/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

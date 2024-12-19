@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Downloads - Plugin SmartPOS</title>
+    <link>//localhost:1313/downloads.html</link>
+    <description>Capítulo 3 Downloads Acesso aos arquivos de exemplo, e plugin para implementação do seu smartPOS.&#xA;Plugin SmartPOS Código do aplicativo de exemplo Gertec GPOS720 Código do aplicativo de exemplo Pax A910/A910S Aplicativo de ativação para Tectoy/Pax</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="//localhost:1313/downloads/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

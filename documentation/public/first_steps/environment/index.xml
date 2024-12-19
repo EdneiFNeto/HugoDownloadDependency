@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configurando ambiente - Plugin SmartPOS</title>
+    <link>//localhost:1313/first_steps/environment.html</link>
+    <description>Configurando ambiente IDE Recomendamos o uso do Android Studio, na última versão disponível.&#xA;Linguagem Hoje, seguimos o padrão do Android utilizando o Kotlin na versão 1.9.0&#xA;Dica Para exemplo, é possível seguir a implementação do app de teste no arquivo build.gradle</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <atom:link href="//localhost:1313/first_steps/environment/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

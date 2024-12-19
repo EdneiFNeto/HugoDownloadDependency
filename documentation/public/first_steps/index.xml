@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Primeiros passos - Plugin SmartPOS</title>
+    <link>//localhost:1313/first_steps.html</link>
+    <description>Capítulo 4 Primeiros passos Aqui, você vai aprender sobre o que um smartPOS e como dar o pontapé no desenvolvimento do seu produto com o plugin da Zoop.</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Tue, 14 Feb 2023 09:13:36 -0300</lastBuildDate>
+    <atom:link href="//localhost:1313/first_steps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Configurando ambiente</title>
+      <link>//localhost:1313/first_steps/environment.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/first_steps/environment.html</guid>
+      <description>Configurando ambiente IDE Recomendamos o uso do Android Studio, na última versão disponível.&#xA;Linguagem Hoje, seguimos o padrão do Android utilizando o Kotlin na versão 1.9.0&#xA;Dica Para exemplo, é possível seguir a implementação do app de teste no arquivo build.gradle</description>
+    </item>
+    <item>
+      <title>Configuração do projeto</title>
+      <link>//localhost:1313/first_steps/configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/first_steps/configuration.html</guid>
+      <description>Configuração Inicial O download de dependências é realizado via maven, conforme exemplo abaixo: // No gradle do projeto, apontar: allprojects { repositories { google() mavenCentral() mavenLocal() maven { url = uri(&#34;https://maven.pkg.github.com/getzoop/zoop-package-public&#34;) credentials { username = &#34;MyCompanyGH&#34; // Seu usuário do GitHub. password = &#34;github_pat_...&#34; // Sua PAT do GitHub. } } } } // E adicionar como dependência de acordo com o modelo: implementation(&#34;br.zoop.pos.plugin:smartpos-gertec-gpos720:1.8.4&#34;) // Para a Gertec GPOS720 implementation(&#34;br.zoop.pos.plugin:smartpos-pax-a910:1.8.4&#34;) // Para a Pax A910/A910S Informação A GitHub personal access token (PAT) usada deve possuir no mínimo permissão para ler e obter pacotes/artefatos de repositórios públicos.</description>
+    </item>
+    <item>
+      <title>Deploy</title>
+      <link>//localhost:1313/first_steps/deploy.html</link>
+      <pubDate>Tue, 14 Feb 2023 09:13:36 -0300</pubDate>
+      <guid>//localhost:1313/first_steps/deploy.html</guid>
+      <description>Escolha o fabricante do seu terminal Tectoy/Pax Gertec</description>
+    </item>
+  </channel>
+</rss>
