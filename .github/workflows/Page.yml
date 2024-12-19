@@ -6,7 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       # Checkout the repository
       - name: Checkout repository
@@ -47,3 +46,15 @@ jobs:
         run: |
           echo "Cleaning up temporary files..."
           rm -f documentation/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: pagzoop
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
