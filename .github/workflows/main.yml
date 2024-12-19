@@ -1,4 +1,4 @@
-name: Hugo main page
+name: Download Hugo v0.140.0 tar.gz
 
 on:
   workflow_dispatch:

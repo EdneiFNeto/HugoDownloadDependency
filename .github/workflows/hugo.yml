@@ -1,4 +1,4 @@
-name: Hugo page
+name:  Download Hugo action
 
 on:
   workflow_dispatch:
