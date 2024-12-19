@@ -15,11 +15,11 @@ jobs:
         run: |
           wget https://github.com/EdneiFNeto/PacakgesPublic/releases/download/v0.140.0/hugo_0.140.0_Linux-64bit.tar.gz
          
-      - name: extraí files 
+      - name: Extract tar.gz file
         run: |
           tar -xvzf hugo_0.140.0_Linux-64bit.tar.gz
 
-      - name: Move files
+      - name: Move files to local bin
         run: |
           sudo mv hugo /usr/local/bin/
 
