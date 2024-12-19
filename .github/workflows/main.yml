@@ -1,7 +1,7 @@
 name: Hugo Server
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
   build:
@@ -11,18 +11,35 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Download hugo version v0.140.0
+      - name: Download Hugo v0.140.0 from personal repo
         run: |
-          wget https://github.com/EdneiFNeto/PacakgesPublic/releases/download/v0.140.0/hugo_0.140.0_Linux-64bit.tar.gz
-         
+          # Baixar o arquivo tar.gz do Hugo do seu repositório pessoal
+          curl -L -o hugo_0.140.0_Linux-64bit.tar.gz https://github.com/EdneiFNeto/PacakgesPublic/releases/download/v0.140.0/hugo_0.140.0_Linux-64bit.tar.gz
+
+      - name: Verify download
+        run: |
+          # Verificar se o arquivo foi baixado corretamente
+          if [ ! -f hugo_0.140.0_Linux-64bit.tar.gz ]; then
+            echo "Erro: o arquivo de download não foi encontrado!"
+            exit 1
+          fi
+
       - name: Extract tar.gz file
         run: |
+          # Extrair o arquivo tar.gz
           tar -xvzf hugo_0.140.0_Linux-64bit.tar.gz
 
-      - name: Move files to local bin
+      - name: Move Hugo to /usr/local/bin
         run: |
+          # Mover o binário do Hugo para o diretório /usr/local/bin
           sudo mv hugo /usr/local/bin/
 
-      - name: Check version hugo
+      - name: Check Hugo version
         run: |
-           hugo version
+          # Verificar se o Hugo foi instalado corretamente
+          hugo version
+
+      - name: Clean up
+        run: |
+          # Limpar os arquivos desnecessários
+          rm -f hugo_0.140.0_Linux-64bit.tar.gz
