@@ -1,4 +1,4 @@
-name: Download Hugo v0.140.0 tar.gz
+name: Download Hugo action
 
 on:
   workflow_dispatch:
@@ -12,40 +12,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Setup configuration variables
-      - name: Set up variables
-        run: |
-          HUGO_VERSION="0.140.0"
-          HUGO_TAR="hugo_${HUGO_VERSION}_Linux-64bit.tar.gz"
-          HUGO_URL="https://github.com/EdneiFNeto/PacakgesPublic/releases/download/v${HUGO_VERSION}/${HUGO_TAR}"
-          echo "HUGO_VERSION=${HUGO_VERSION}" >> $GITHUB_ENV
-          echo "HUGO_TAR=${HUGO_TAR}" >> $GITHUB_ENV
-          echo "HUGO_URL=${HUGO_URL}" >> $GITHUB_ENV
+      # Set the Hugo version
+      - name: Set Hugo version
+        run: echo "HUGO_VERSION=0.140.0" >> $GITHUB_ENV
 
-      # Download Hugo
-      - name: Download Hugo
-        run: |
-          echo "Downloading Hugo version $HUGO_VERSION..."
-          curl -L -o $HUGO_TAR $HUGO_URL
+      # Download Hugo binary
+      # - name: Download Hugo binary
+      #   run: |
+      #     mkdir -p documentation
+      #     curl -L -o documentation/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
 
-      # Verify the download was successful
-      - name: Verify download
-        run: |
-          if [ ! -f $HUGO_TAR ]; then
-            echo "Error: The downloaded file was not found!"
-            exit 1
-          fi
+      # Verify Hugo binary exists
+      - name: Verify tar gz
+        run: ls -lh documentation/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
 
-      # Extract and move Hugo to /usr/local/bin
-      - name: Install Hugo
+      # Extract Hugo binary
+      - name: Extract Hugo binary
         run: |
-          echo "Extracting and installing Hugo..."
-          tar -xvzf $HUGO_TAR
-          sudo mv hugo /usr/local/bin/
+          tar -xzvf documentation/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C documentation
+          ls -lh documentation
 
-      # Verify Hugo installation
-      - name: Verify Hugo installation
-        run: hugo version
+      # Verify Hugo version
+      - name: Verify Hugo version
+        run: documentation/hugo version
 
       # Configure GitHub Pages
       - name: Setup Pages
@@ -55,7 +44,7 @@ jobs:
       - name: Build site
         run: |
           echo "Building the site with Hugo..."
-          cd documentation && hugo --minify
+          cd documentation && ./hugo --minify
 
       # Upload artifacts
       - name: Upload artifact
@@ -67,4 +56,4 @@ jobs:
       - name: Cleanup
         run: |
           echo "Cleaning up temporary files..."
-          rm -f $HUGO_TAR
+          rm -f documentation/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
