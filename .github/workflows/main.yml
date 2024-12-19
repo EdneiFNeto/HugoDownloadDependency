@@ -1,4 +1,4 @@
-name: Hugo Server
+name: Hugo main page
 
 on:
   workflow_dispatch:
