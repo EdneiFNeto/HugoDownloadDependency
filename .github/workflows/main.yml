@@ -8,49 +8,63 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Fazer checkout do repositório
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Download Hugo v0.140.0 from public repo
+      # Variáveis de configuração
+      - name: Set up variables
         run: |
-          # Baixar o arquivo tar.gz do Hugo do seu repositório publico
-          curl -L -o hugo_0.140.0_Linux-64bit.tar.gz https://github.com/EdneiFNeto/PacakgesPublic/releases/download/v0.140.0/hugo_0.140.0_Linux-64bit.tar.gz
+          HUGO_VERSION="0.140.0"
+          HUGO_TAR="hugo_${HUGO_VERSION}_Linux-64bit.tar.gz"
+          HUGO_URL="https://github.com/EdneiFNeto/PacakgesPublic/releases/download/v${HUGO_VERSION}/${HUGO_TAR}"
+          echo "HUGO_VERSION=${HUGO_VERSION}" >> $GITHUB_ENV
+          echo "HUGO_TAR=${HUGO_TAR}" >> $GITHUB_ENV
+          echo "HUGO_URL=${HUGO_URL}" >> $GITHUB_ENV
 
+      # Baixar o Hugo
+      - name: Download Hugo
+        run: |
+          echo "Baixando Hugo versão $HUGO_VERSION..."
+          curl -L -o $HUGO_TAR $HUGO_URL
+
+      # Verificar se o download foi bem-sucedido
       - name: Verify download
         run: |
-          # Verificar se o arquivo foi baixado corretamente
-          if [ ! -f hugo_0.140.0_Linux-64bit.tar.gz ]; then
-            echo "Erro: o arquivo de download não foi encontrado!"
+          if [ ! -f $HUGO_TAR ]; then
+            echo "Erro: O arquivo de download não foi encontrado!"
             exit 1
           fi
 
-      - name: Extract tar.gz file
+      # Extrair e mover o Hugo para /usr/local/bin
+      - name: Install Hugo
         run: |
-          # Extrair o arquivo tar.gz
-          tar -xvzf hugo_0.140.0_Linux-64bit.tar.gz
-
-      - name: Move Hugo to /usr/local/bin
-        run: |
-          # Mover o binário do Hugo para o diretório /usr/local/bin
+          echo "Extraindo e instalando Hugo..."
+          tar -xvzf $HUGO_TAR
           sudo mv hugo /usr/local/bin/
 
-      - name: Check Hugo version
-        run: |
-          # Verificar se o Hugo foi instalado corretamente
-          hugo version
+      # Verificar a versão do Hugo
+      - name: Verify Hugo installation
+        run: hugo version
 
+      # Configurar GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Build with Hugo
-        run: cd documentation && hugo --minify
+      # Construir o site com Hugo
+      - name: Build site
+        run: |
+          echo "Construindo o site com Hugo..."
+          cd documentation && hugo --minify
 
+      # Fazer upload dos artefatos
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: '${{github.workspace}}/documentation/public'
+          path: documentation/public
 
-      - name: Clean up
+      # Limpar arquivos desnecessários
+      - name: Cleanup
         run: |
-          # Limpar os arquivos desnecessários
-          rm -f hugo_0.140.0_Linux-64bit.tar.gz
+          echo "Limpando arquivos temporários..."
+          rm -f $HUGO_TAR
