@@ -39,6 +39,17 @@ jobs:
           # Verificar se o Hugo foi instalado corretamente
           hugo version
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Build with Hugo
+        run: cd documentation && hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '${{github.workspace}}/documentation/public'
+
       - name: Clean up
         run: |
           # Limpar os arquivos desnecessários
