@@ -1,0 +1,43 @@
+name: Hugo Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Hugo 0.140.0
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.140.0'
+          
+      - name: Verify Hugo version
+        run: hugo version
+
+      # Configure GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      # Build the site with Hugo
+      - name: Build site
+        run: |
+          echo "Building the site with Hugo..."
+          cd documentation && hugo --minify
+
+      # Upload artifacts
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: documentation/public
+
+      # Clean up temporary files
+      - name: Cleanup
+        run: |
+          echo "Cleaning up temporary files..."
+          rm -f $HUGO_TAR
