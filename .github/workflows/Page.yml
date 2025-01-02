@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: EdneiFNeto/myDependency # Substitua pelo nome correto do repositório
-          token: ${{ secrets.Token }}     # Acesse repositórios privados com token se necessário
+          token: ${{ secrets.GITHUB_TOKEN }}     # Acesse repositórios privados com token se necessário
           ref: main
           path: EdneiFNeto/HugoDownloadDependency
 
