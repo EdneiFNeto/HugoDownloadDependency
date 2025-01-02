@@ -24,9 +24,9 @@ jobs:
       - name: Checkout other repository
         uses: actions/checkout@v4
         with:
-          repository: https://github.com/EdneiFNeto/myDependency # Substitua pelo nome correto do repositório
+          repository: EdneiFNeto/myDependency # Substitua pelo nome correto do repositório
           token: ${{ secrets.GITHUB_TOKEN }}     # Acesse repositórios privados com token se necessário
-          path: https://github.com/EdneiFNeto/HugoDownloadDependency/tree/main/documentation
+          path: EdneiFNeto/HugoDownloadDependency/tree/main/documentation
           
       # Extract Hugo binary
       - name: Extract Hugo binary
