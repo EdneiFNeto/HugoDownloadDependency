@@ -36,7 +36,8 @@ jobs:
       # Extract Hugo binary
       - name: Extract Hugo binary
         run: |
-          tar -xzvf documentation/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C documentation
+          tar -xzvf EdneiFNeto/HugoDownloadDependency/hugo_${{ env.HUGO_VERSION }}_Linux-64bit.tar.gz -C documentation
+          # tar -xzvf documentation/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz -C documentation
           ls -lh documentation
 
       # Verify Hugo version
