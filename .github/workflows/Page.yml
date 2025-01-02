@@ -13,15 +13,21 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.140.0 
     steps:
       # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set the Hugo version
-      - name: Set Hugo version
-        run: echo "HUGO_VERSION=0.140.0" >> $GITHUB_ENV
-
+      # Fazer o checkout do outro repositório onde o arquivo .tar.gz está localizado
+      - name: Checkout other repository
+        uses: actions/checkout@v4
+        with:
+          repository: https://github.com/EdneiFNeto/myDependency # Substitua pelo nome correto do repositório
+          token: ${{ secrets.GITHUB_TOKEN }}     # Acesse repositórios privados com token se necessário
+          path: https://github.com/EdneiFNeto/HugoDownloadDependency/tree/main/documentation
+          
       # Extract Hugo binary
       - name: Extract Hugo binary
         run: |
