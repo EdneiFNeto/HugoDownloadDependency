@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v3
 
       # Fazer o checkout do outro repositório onde o arquivo .tar.gz está localizado
-      - name: Checkout other repository
+      - name: Checkout dependency repository
         uses: actions/checkout@v4
         with:
           repository: EdneiFNeto/myDependency # Substitua pelo nome correto do repositório
@@ -29,7 +29,7 @@ jobs:
           path: EdneiFNeto/HugoDownloadDependency
 
       # Verificar se o arquivo .tar.gz está no repositório correto
-      - name: List files in other repository
+      - name: Check files in dependency repo
         run: |
           ls -lh EdneiFNeto/HugoDownloadDependency
           
