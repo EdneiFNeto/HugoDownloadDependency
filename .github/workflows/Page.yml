@@ -26,6 +26,7 @@ jobs:
         with:
           repository: EdneiFNeto/myDependency # Substitua pelo nome correto do repositório
           token: ${{ secrets.GITHUB_TOKEN }}     # Acesse repositórios privados com token se necessário
+          ref: main
           path: EdneiFNeto/HugoDownloadDependency
 
       # Verificar se o arquivo .tar.gz está no repositório correto
