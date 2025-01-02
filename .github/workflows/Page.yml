@@ -26,7 +26,12 @@ jobs:
         with:
           repository: EdneiFNeto/myDependency # Substitua pelo nome correto do repositório
           token: ${{ secrets.GITHUB_TOKEN }}     # Acesse repositórios privados com token se necessário
-          path: EdneiFNeto/HugoDownloadDependency/tree/main/documentation
+          path: EdneiFNeto/HugoDownloadDependency
+
+      # Verificar se o arquivo .tar.gz está no repositório correto
+      - name: List files in other repository
+        run: |
+          ls -lh EdneiFNeto/HugoDownloadDependency
           
       # Extract Hugo binary
       - name: Extract Hugo binary
